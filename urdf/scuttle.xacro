@@ -225,14 +225,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.119279 0.254415 -0.059282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_swivel_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/r_caster_swivel_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="silver"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0.119279 0.254415 -0.059282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/r_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -256,14 +256,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="-0.101223 0.230415 -0.025282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_wheel_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/l_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="-0.101223 0.230415 -0.025282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/l_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -287,14 +287,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="-0.119015 0.254415 -0.059282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_swivel_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/l_caster_swivel_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="silver"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="-0.119015 0.254415 -0.059282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/l_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
@@ -318,14 +318,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.105071 0.230415 -0.025282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_wheel_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/r_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0.105071 0.230415 -0.025282"/>
             <geometry>
-                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
+                <mesh filename="package://scuttle_description/meshes/r_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
