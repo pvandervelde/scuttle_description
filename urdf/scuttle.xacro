@@ -179,7 +179,7 @@
         <origin rpy="0 0 0" xyz="0.0 -0.20042 -0.0430"/>
         <parent link="chassis_link"/>
         <child link="r_wheel"/>
-        <axis xyz="0.0 -1.0 0.0"/>
+        <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <link name="r_wheel">
