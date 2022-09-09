@@ -1,7 +1,6 @@
 <?xml version="1.0" ?>
 <robot name="scuttle" xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:include filename="$(find scuttle_description)/urdf/materials.xacro" />
-    <xacro:include filename="$(find scuttle_description)/urdf/scuttle.trans" />
     <xacro:include filename="$(find scuttle_description)/urdf/scuttle.gazebo" />
 
     <!--
