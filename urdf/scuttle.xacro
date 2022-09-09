@@ -5,6 +5,13 @@
     <xacro:include filename="$(find scuttle_description)/urdf/scuttle.gazebo" />
 
     <!--
+        This model of Scuttle is based on the SCUTTLE 2.4 model as defined here: https://grabcad.com/library/scuttle-robot-v2-4-1
+    -->
+
+    <!--
+      The base_link is defined as being on the ground plane, in the middle of the two rear wheels on
+      the axle line.
+
       An empty base link for the following reasons:
       - When running a simulation the base link is not allowed to have inertia, but the chassis does need to have
         its inertia defined. So the fix is to define a 'dummy' base link.
@@ -29,11 +36,10 @@
     <!-- The chassis of scuttle -->
     <!--
         Define the connection between base_link and chassis_link. Relative to base_link the joint
-        is exactly in the c.o.g of the chassis, because ROS considers the joint frame to be the same
-        as the child frame.
+        is on the axle line, at the height of the middle of the aluminium extrusions.
     -->
     <joint name="chassis_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.10539999389648432 0 0.084749938964843793"/>
+        <origin rpy="0 0 0" xyz="0 0 0.095805"/>
         <parent link="base_link"/>
         <child link="chassis_link"/>
     </joint>
@@ -44,42 +50,92 @@
     -->
     <link name="chassis_link">
         <inertial>
-            <origin rpy="0 0 0" xyz="0.1 0 0.07392564365565002"/>
+            <origin rpy="0 0 0" xyz="0.101 0 0"/>
             <mass value="3.288323846275119"/>
             <inertia ixx="0.038876" ixy="1.3e-05" ixz="1e-06" iyy="0.047513" iyz="0.000486" izz="0.084083"/>
         </inertial>
+        <!-- Aluminium frame with electronics -->
         <visual>
-            <!--
-                The origin of the STL mesh is the center of gravity of the aluminium frame (excluding the
-                motors etc.). To get it to the correct location it needs to be moved slightly forward and
-                slightly up.
-            -->
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 0" xyz="0.101 0 0"/>
             <geometry>
-                <!--
-                    The visual mesh is a high definition mesh for visual purposes only.
-
-                    Note that the STL mesh is dimensioned in millimeters
-                -->
-                <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.365, 0.305, 0.0300" />
             </geometry>
             <material name="silver"/>
         </visual>
         <collision>
-            <!--
-                The origin of the STL mesh is the center of gravity of the aluminium frame (excluding the
-                motors etc.). To get it to the correct location it needs to be moved slightly forward and
-                slightly up.
-            -->
-            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <origin rpy="0 0 0" xyz="0.101 0 0"/>
             <geometry>
-                <!--
-                    The collision mesh is a low definition mesh for collision calculation purposes. It only
-                    describes the outer boundaries of the scuttle chassis.
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.365, 0.305, 0.0300" />
+            </geometry>
+        </collision>
 
-                    Note that the STL mesh is dimensioned in millimeters
-                -->
-                <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/>
+        <!-- Left wheel bracket -->
+        <visual>
+            <origin rpy="0 0 0" xyz="0.0335 0.1374 -0.021"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.100, 0.0429, 0.0720" />
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0335 0.1374 -0.021"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.100, 0.0429, 0.0720" />
+            </geometry>
+        </collision>
+
+        <!-- Left motor -->
+        <visual>
+            <origin rpy="0 0 0" xyz="0.0620 0.12025 -0.037255"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.037, 0.0645, 0.0370" />
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0620 0.12025 -0.037255"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.037, 0.0645, 0.0370" />
+            </geometry>
+        </collision>
+
+        <!-- Right wheel bracket -->
+        <visual>
+            <origin rpy="0 0 0" xyz="0.0335 -0.1374 -0.021"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.100, 0.0429, 0.0720" />
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0335 -0.1374 -0.021"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.100, 0.0429, 0.0720" />
+            </geometry>
+        </collision>
+
+        <!-- Right motor -->
+        <visual>
+            <origin rpy="0 0 0" xyz="0.0620 -0.12025 -0.037255"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.037, 0.0645, 0.0370" />
+            </geometry>
+            <material name="silver"/>
+        </visual>
+        <collision>
+            <origin rpy="0 0 0" xyz="0.0620 -0.12025 -0.037255"/>
+            <geometry>
+                <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
+                <box size="0.037, 0.0645, 0.0370" />
             </geometry>
         </collision>
     </link>
@@ -88,29 +144,31 @@
         The left rear wheel. This includes the sprocket for the drive belt.
     -->
     <joint name="l_wheel_joint" type="continuous">
-        <origin rpy="0 0 1.570796" xyz="-0.10539999389648432 0.21235 -0.043"/>
+        <origin rpy="0 0 0" xyz="0.0 0.20042 -0.0430"/>
         <parent link="chassis_link"/>
         <child link="l_wheel"/>
-        <axis xyz="1.0 -0.0 0.0"/>
+        <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <link name="l_wheel">
         <inertial>
-            <origin rpy="0 0 0" xyz="-0.020325481156161784 -9.763736334427187e-09 4.516951403188418e-09"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
             <mass value="0.5928646271111422"/>
-            <inertia ixx="0.000334" ixy="0.0" ixz="-0.0" iyy="0.000332" iyz="-0.0" izz="0.000332"/>
+            <inertia ixx="0.000334" ixy="0.0" ixz="0.0" iyy="0.000332" iyz="0.0" izz="0.000332"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="-0.21235 -0.0 -0.04175"/>
+            <origin rpy="1.570796 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>
+                <cylinder length="0.0523" radius="0.04175" />
+                <!--<mesh filename="package://scuttle_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>-->
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="-0.21235 -0.0 -0.04175"/>
+            <origin rpy="1.570796 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <cylinder length="0.0523" radius="0.04175" />
+                <!--<mesh filename="package://scuttle_description/meshes/l_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>-->
             </geometry>
         </collision>
     </link>
@@ -119,29 +177,31 @@
         The right rear wheel. This includes the sprocket for the drive belt.
     -->
     <joint name="r_wheel_joint" type="continuous">
-        <origin rpy="0 0 1.570796" xyz="-0.10539999389648432 -0.21235 -0.043"/>
+        <origin rpy="0 0 0" xyz="0.0 -0.20042 -0.0430"/>
         <parent link="chassis_link"/>
         <child link="r_wheel"/>
-        <axis xyz="1.0 0.0 -0.0"/>
+        <axis xyz="0.0 -1.0 0.0"/>
     </joint>
 
     <link name="r_wheel">
         <inertial>
-            <origin rpy="0 0 0" xyz="0.020325563043213257 1.3954236146756306e-08 2.0353343177514915e-09"/>
-            <mass value="0.592867092340216"/>
-            <inertia ixx="0.000334" ixy="0.0" ixz="0.0" iyy="0.000332" iyz="-0.0" izz="0.000332"/>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <mass value="0.5928646271111422"/>
+            <inertia ixx="0.000334" ixy="0.0" ixz="0.0" iyy="0.000332" iyz="0.0" izz="0.000332"/>
         </inertial>
         <visual>
-            <origin rpy="0 0 0" xyz="0.21215 0.0 -0.04175"/>
+            <origin rpy="1.570796 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_wheel_1.stl" scale="0.001 0.001 0.001"/>
+                <cylinder length="0.0523" radius="0.04175" />
+                <!--<mesh filename="package://scuttle_description/meshes/l_wheel_1.stl" scale="0.001 0.001 0.001"/>-->
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
-            <origin rpy="0 0 0" xyz="0.21215 0.0 -0.04175"/>
+            <origin rpy="1.570796 0 0" xyz="0 0 0"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <cylinder length="0.0523" radius="0.04175" />
+                <!--<mesh filename="package://scuttle_description/meshes/l_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>-->
             </geometry>
         </collision>
     </link>
@@ -165,14 +225,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.119279 0.254415 -0.059282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_caster_swivel_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_swivel_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="silver"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0.119279 0.254415 -0.059282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
         </collision>
     </link>
@@ -196,14 +256,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="-0.101223 0.230415 -0.025282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_wheel_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="-0.101223 0.230415 -0.025282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
         </collision>
     </link>
@@ -227,14 +287,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="-0.119015 0.254415 -0.059282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_caster_swivel_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_swivel_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="silver"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="-0.119015 0.254415 -0.059282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/l_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/l_caster_swivel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
         </collision>
     </link>
@@ -258,14 +318,14 @@
         <visual>
             <origin rpy="0 0 0" xyz="0.105071 0.230415 -0.025282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_wheel_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
             <material name="blue"/>
         </visual>
         <collision>
             <origin rpy="0 0 0" xyz="0.105071 0.230415 -0.025282"/>
             <geometry>
-                <mesh filename="package://scuttle_description/meshes/r_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/>
+                <!-- <mesh filename="package://scuttle_description/meshes/r_caster_wheel_collision_1.stl" scale="0.001 0.001 0.001"/> -->
             </geometry>
         </collision>
     </link>
