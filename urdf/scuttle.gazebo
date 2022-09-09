@@ -16,7 +16,7 @@
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <selfCollide>false</selfCollide>
   <gravity>true</gravity>
 </gazebo>
 
@@ -24,49 +24,84 @@
   <material>${wheel_color}</material>
   <mu1>0.9</mu1>
   <mu2>0.9</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="r_wheel">
   <material>${wheel_color}</material>
   <mu1>0.9</mu1>
   <mu2>0.9</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="lidar_1">
   <material>${lidar_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="r_caster_swivel">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="l_caster_swivel">
   <material>${body_color}</material>
   <mu1>0.2</mu1>
   <mu2>0.2</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="l_caster_wheel">
   <material>${wheel_color}</material>
   <mu1>0.4</mu1>
   <mu2>0.4</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo reference="r_caster_wheel">
   <material>${wheel_color}</material>
   <mu1>0.4</mu1>
   <mu2>0.4</mu2>
-  <selfCollide>true</selfCollide>
+  <kp>500000.0</kp>
+  <kd>10.0</kd>
+  <minDepth>0.001</minDepth>
+  <maxVel>0.1</maxVel>
+  <fdir1>1 0 0</fdir1>
+  <selfCollide>false</selfCollide>
 </gazebo>
 
 <gazebo>
