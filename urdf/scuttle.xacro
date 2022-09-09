@@ -59,7 +59,7 @@
             <origin rpy="0 0 0" xyz="0.101 0 0"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.365, 0.305, 0.0300" />
+                <box size="0.365 0.305 0.0300" />
             </geometry>
             <material name="silver"/>
         </visual>
@@ -67,7 +67,7 @@
             <origin rpy="0 0 0" xyz="0.101 0 0"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.365, 0.305, 0.0300" />
+                <box size="0.365 0.305 0.0300" />
             </geometry>
         </collision>
 
@@ -76,7 +76,7 @@
             <origin rpy="0 0 0" xyz="0.0335 0.1374 -0.021"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.100, 0.0429, 0.0720" />
+                <box size="0.100 0.0429 0.0720" />
             </geometry>
             <material name="silver"/>
         </visual>
@@ -84,7 +84,7 @@
             <origin rpy="0 0 0" xyz="0.0335 0.1374 -0.021"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.100, 0.0429, 0.0720" />
+                <box size="0.100 0.0429 0.0720" />
             </geometry>
         </collision>
 
@@ -93,7 +93,7 @@
             <origin rpy="0 0 0" xyz="0.0620 0.12025 -0.037255"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.037, 0.0645, 0.0370" />
+                <box size="0.037 0.0645 0.0370" />
             </geometry>
             <material name="silver"/>
         </visual>
@@ -101,7 +101,7 @@
             <origin rpy="0 0 0" xyz="0.0620 0.12025 -0.037255"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.037, 0.0645, 0.0370" />
+                <box size="0.037 0.0645 0.0370" />
             </geometry>
         </collision>
 
@@ -110,7 +110,7 @@
             <origin rpy="0 0 0" xyz="0.0335 -0.1374 -0.021"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.100, 0.0429, 0.0720" />
+                <box size="0.100 0.0429 0.0720" />
             </geometry>
             <material name="silver"/>
         </visual>
@@ -118,7 +118,7 @@
             <origin rpy="0 0 0" xyz="0.0335 -0.1374 -0.021"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.100, 0.0429, 0.0720" />
+                <box size="0.100 0.0429 0.0720" />
             </geometry>
         </collision>
 
@@ -127,7 +127,7 @@
             <origin rpy="0 0 0" xyz="0.0620 -0.12025 -0.037255"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.037, 0.0645, 0.0370" />
+                <box size="0.037 0.0645 0.0370" />
             </geometry>
             <material name="silver"/>
         </visual>
@@ -135,7 +135,7 @@
             <origin rpy="0 0 0" xyz="0.0620 -0.12025 -0.037255"/>
             <geometry>
                 <!-- <mesh filename="package://scuttle_description/meshes/chassis_link_collision.stl" scale="0.001 0.001 0.001"/> -->
-                <box size="0.037, 0.0645, 0.0370" />
+                <box size="0.037 0.0645 0.0370" />
             </geometry>
         </collision>
     </link>
