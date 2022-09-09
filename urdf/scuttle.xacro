@@ -39,7 +39,7 @@
         is on the axle line, at the height of the middle of the aluminium extrusions.
     -->
     <joint name="chassis_joint" type="fixed">
-        <origin rpy="0 0 0" xyz="0 0 0.095805"/>
+        <origin rpy="0 0 0" xyz="0 0 0.08475"/>
         <parent link="base_link"/>
         <child link="chassis_link"/>
     </joint>
